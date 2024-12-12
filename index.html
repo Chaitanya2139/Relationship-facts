@@ -3,20 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relationship Psychology Facts</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Relationship Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .fact-card {
+            background-color: #fff5f5;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #ff4b4b;
+            transition: transform 0.3s ease;
+        }
+
+        .fact-card:hover {
+            transform: translateX(10px);
+        }
+
+        h1 {
+            color: #ff4b4b;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #ff4b4b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ff3131;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Relationship Psychology Facts</h1>
-        <div class="filter-section">
-            <label for="category-filter">Filter by category:</label>
-            <select id="category-filter">
-                <option value="all">All Categories</option>
-            </select>
-        </div>
-        <div id="facts-container"></div>
+        <h1>Relationship Facts</h1>
+        <button class="btn" onclick="showRandomFact()">Show Random Fact</button>
+        <div id="factDisplay"></div>
     </div>
-    <script src="app.js"></script>
+
+    <script>
+        const relationshipFacts = {
+            "relationshipFacts": [
+                {
+                    "id": 1,
+                    "fact": "Couples who laugh together frequently have stronger, more lasting relationships"
+                },
+                {
+                    "id": 2,
+                    "fact": "The average length of courtship before marriage is 2.8 years"
+                },
+                {
+                    "id": 3,
+                    "fact": "Physical touch releases oxytocin, often called the 'love hormone'"
+                },
+                {
+                    "id": 4,
+                    "fact": "Long-distance relationships have a 58% success rate"
+                },
+                {
+                    "id": 5,
+                    "fact": "Couples who travel together report higher levels of relationship satisfaction"
+                },
+                {
+                    "id": 6,
+                    "fact": "It takes about 7 seconds to make a first impression on a potential partner"
+                },
+                {
+                    "id": 7,
+                    "fact": "Couples who maintain eye contact during conversations report stronger emotional connections"
+                },
+                {
+                    "id": 8,
+                    "fact": "Married couples who watch romantic movies together are 50% less likely to divorce"
+                },
+                {
+                    "id": 9,
+                    "fact": "People in happy relationships tend to gain weight together"
+                },
+                {
+                    "id": 10,
+                    "fact": "Couples who regularly try new activities together report higher relationship satisfaction"
+                },
+                {
+                    "id": 11,
+                    "fact": "The most common day for breakups is Monday"
+                },
+                {
+                    "id": 12,
+                    "fact": "Couples who share household chores have better relationships and more intimate lives"
+                },
+                {
+                    "id": 13,
+                    "fact": "The average person falls in love 4 times in their lifetime"
+                },
+                {
+                    "id": 14,
+                    "fact": "Couples who post less about their relationship on social media tend to be happier"
+                },
+                {
+                    "id": 15,
+                    "fact": "The divorce rate has been declining since the 1980s"
+                },
+                {
+                    "id": 16,
+                    "fact": "Holding hands with a loved one can reduce physical pain"
+                },
+                {
+                    "id": 17,
+                    "fact": "Couples who sleep less than one inch apart are more likely to be happy together"
+                },
+                {
+                    "id": 18,
+                    "fact": "The average relationship argument lasts 10 minutes"
+                },
+                {
+                    "id": 19,
+                    "fact": "Couples who meet online are less likely to divorce than those who meet traditionally"
+                },
+                {
+                    "id": 20,
+                    "fact": "Happy couples say 'thank you' to each other at least 5 times a day"
+                }
+            ]
+        };
+
+        function showRandomFact() {
+            const facts = relationshipFacts.relationshipFacts;
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            const fact = facts[randomIndex];
+            
+            const factDisplay = document.getElementById('factDisplay');
+            factDisplay.innerHTML = `
+                <div class="fact-card">
+                    <h3>Fact #${fact.id}</h3>
+                    <p>${fact.fact}</p>
+                </div>
+            `;
+        }
+
+        // Show a random fact when the page loads
+        window.onload = showRandomFact;
+    </script>
 </body>
 </html>
