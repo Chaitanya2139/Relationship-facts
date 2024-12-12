@@ -1,10 +1,10 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #ffe6e6 0%, #ff9999 100%);
+    min-height: 100vh;
 }
 
 .container {
@@ -15,6 +15,11 @@ body {
 h1 {
     text-align: center;
     color: #333;
+    background: linear-gradient(to right, #ff1a1a, #ff66b3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding: 20px 0;
 }
 
 .filter-section {
@@ -26,22 +31,36 @@ select {
     padding: 8px;
     font-size: 16px;
     border-radius: 4px;
+    border: 2px solid #ff4d4d;
+    background: linear-gradient(to bottom, #ffffff, #ffe6e6);
 }
 
 .fact-card {
-    background-color: white;
+    background: linear-gradient(to right, #ffffff, #fff0f0);
     padding: 20px;
     margin: 15px 0;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(255,77,77,0.1);
+    transition: transform 0.3s ease;
+}
+
+.fact-card:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(to right, #fff0f0, #ffcccc);
 }
 
 .fact-category {
-    color: #666;
+    color: #ff1a1a;
     font-size: 0.9em;
     text-transform: capitalize;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff4d4d, #ff1a75);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .fact-text {
     margin: 10px 0;
+    color: #802020;
 }
