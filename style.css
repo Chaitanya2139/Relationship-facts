@@ -1,0 +1,47 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.filter-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+select {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.fact-card {
+    background-color: white;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fact-category {
+    color: #666;
+    font-size: 0.9em;
+    text-transform: capitalize;
+}
+
+.fact-text {
+    margin: 10px 0;
+}
