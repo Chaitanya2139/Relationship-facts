@@ -10,7 +10,14 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f0f0f0;
+            background: linear-gradient(135deg, #ff7e7e, #ffe6e6);
+            animation: backgroundGradient 10s infinite alternate;
+        }
+
+        @keyframes backgroundGradient {
+            0% { background: linear-gradient(135deg, #ff7e7e, #ffe6e6); }
+            50% { background: linear-gradient(135deg, #ff4b4b, #ffd6d6); }
+            100% { background: linear-gradient(135deg, #ff3131, #ffb3b3); }
         }
 
         .container {
@@ -21,16 +28,32 @@
         }
 
         .fact-card {
-            background-color: #fff5f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #fff5f5, #ffe6e6);
             padding: 15px;
-            margin: 10px 0;
+            margin: 20px 0;
             border-radius: 5px;
-            border-left: 4px solid #ff4b4b;
+            border: 1px solid #ff4b4b;
             transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .fact-card img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
 
         .fact-card:hover {
-            transform: translateX(10px);
+            transform: translateY(-10px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
@@ -52,6 +75,17 @@
         .btn:hover {
             background-color: #ff3131;
         }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff5f5;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+            color: #ff4b4b;
+        }
     </style>
 </head>
 <body>
@@ -61,89 +95,33 @@
         <div id="factDisplay"></div>
     </div>
 
+    <div class="footer">
+        ❤️ Love is all around! Share these facts with someone special. ❤️
+    </div>
+
     <script>
         const relationshipFacts = {
             "relationshipFacts": [
-                {
-                    "id": 1,
-                    "fact": "Couples who laugh together frequently have stronger, more lasting relationships"
-                },
-                {
-                    "id": 2,
-                    "fact": "The average length of courtship before marriage is 2.8 years"
-                },
-                {
-                    "id": 3,
-                    "fact": "Physical touch releases oxytocin, often called the 'love hormone'"
-                },
-                {
-                    "id": 4,
-                    "fact": "Long-distance relationships have a 58% success rate"
-                },
-                {
-                    "id": 5,
-                    "fact": "Couples who travel together report higher levels of relationship satisfaction"
-                },
-                {
-                    "id": 6,
-                    "fact": "It takes about 7 seconds to make a first impression on a potential partner"
-                },
-                {
-                    "id": 7,
-                    "fact": "Couples who maintain eye contact during conversations report stronger emotional connections"
-                },
-                {
-                    "id": 8,
-                    "fact": "Married couples who watch romantic movies together are 50% less likely to divorce"
-                },
-                {
-                    "id": 9,
-                    "fact": "People in happy relationships tend to gain weight together"
-                },
-                {
-                    "id": 10,
-                    "fact": "Couples who regularly try new activities together report higher relationship satisfaction"
-                },
-                {
-                    "id": 11,
-                    "fact": "The most common day for breakups is Monday"
-                },
-                {
-                    "id": 12,
-                    "fact": "Couples who share household chores have better relationships and more intimate lives"
-                },
-                {
-                    "id": 13,
-                    "fact": "The average person falls in love 4 times in their lifetime"
-                },
-                {
-                    "id": 14,
-                    "fact": "Couples who post less about their relationship on social media tend to be happier"
-                },
-                {
-                    "id": 15,
-                    "fact": "The divorce rate has been declining since the 1980s"
-                },
-                {
-                    "id": 16,
-                    "fact": "Holding hands with a loved one can reduce physical pain"
-                },
-                {
-                    "id": 17,
-                    "fact": "Couples who sleep less than one inch apart are more likely to be happy together"
-                },
-                {
-                    "id": 18,
-                    "fact": "The average relationship argument lasts 10 minutes"
-                },
-                {
-                    "id": 19,
-                    "fact": "Couples who meet online are less likely to divorce than those who meet traditionally"
-                },
-                {
-                    "id": 20,
-                    "fact": "Happy couples say 'thank you' to each other at least 5 times a day"
-                }
+                { "id": 1, "fact": "Couples who laugh together frequently have stronger, more lasting relationships", "image": "https://media.glamour.com/photos/5695f6aa16d0dc3747eecf51/master/pass/sex-love-life-2015-09-laugh-together-main.jpg" },
+                { "id": 2, "fact": "The average length of courtship before marriage is 2.8 years", "image": "https://phyliciamasonheimer.com/wp-content/uploads/2017/01/pexels-photo-236287.jpeg" },
+                { "id": 3, "fact": "Physical touch releases oxytocin, often called the 'love hormone'", "image": "https://cratedwithlove.com/cdn/shop/articles/Couple_embracing_each_other.jpg?v=1598998683" },
+                { "id": 4, "fact": "Long-distance relationships have a 58% success rate", "image": "https://c8.alamy.com/comp/2JHDMRE/unhappy-man-and-woman-dating-online-end-relationship-sad-couple-have-breakup-or-misunderstanding-talking-on-internet-vector-illustration-2JHDMRE.jpg" },
+                { "id": 5, "fact": "Couples who travel together report higher levels of relationship satisfaction", "image": "https://akm-img-a-in.tosshub.com/lingo/brt/images/story/202409/66ea6a1e830d9-travel-with-partner-185021192-16x9.png" },
+                { "id": 6, "fact": "It takes about 7 seconds to make a first impression on a potential partner", "image": "https://cdn.lovetopivot.com/wp-content/uploads/2021/11/How-Important-Are-First-Impressions-In-A-Relationship.jpg" },
+                { "id": 7, "fact": "Couples who maintain eye contact during conversations report stronger emotional connections", "image": "https://www.bonobology.com/wp-content/uploads/2023/03/eye-contact.jpg" },
+                { "id": 8, "fact": "Married couples who watch romantic movies together are 50% less likely to divorce", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYU3x6rH4BMw6z-9ctuVsUUCkYqwxN-84SVQ&s" },
+                { "id": 9, "fact": "People in happy relationships tend to gain weight together", "image": "https://wl-brightside.cf.tsp.li/resize/1200x630/jpg/e26/219/687b025a2398377addfcd95492.jpg" },
+                { "id": 10, "fact": "Couples who regularly try new activities together report higher relationship satisfaction", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCqnN1qQDSo91GBYLdHbTuk0nOYM0mdfn2BQ&s" },
+                { "id": 11, "fact": "The most common day for breakups is Monday", "image": "https://www.shutterstock.com/image-photo/girl-wife-saying-no-husband-600nw-2267844349.jpg" },
+                { "id": 12, "fact": "Couples who share household chores have better relationships and more intimate lives", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTW9OwiEzZQKwMmvvLFBGOVaQ4dz3t3HhT0Yg&s" },
+                { "id": 13, "fact": "The average person falls in love 4 times in their lifetime", "image": "https://exclusivematchmaking.net/wp-content/uploads/2020/09/couple-falling-in-love.webp" },
+                { "id": 14, "fact": "Couples who post less about their relationship on social media tend to be happier", "image": "https://mindbodycounselingreno.com/wp-content/uploads/2023/08/how-social-media-affects-relationships.jpg" },
+                { "id": 15, "fact": "The divorce rate has been declining since the 1980s", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXW2kW_Z6doU_5VReWm5L-2tqIa-Rck-MxQ&s" },
+                { "id": 16, "fact": "Holding hands with a loved one can reduce physical pain", "image": "https://hips.hearstapps.com/hmg-prod/images/couple-holding-hands-with-a-pinky-grip-royalty-free-image-1692048016.jpg?crop=0.66635xw:1xh;center,top&resize=980:*" },
+                { "id": 17, "fact": "Couples who sleep less than one inch apart are more likely to be happy together", "image": "https://cdn2.stylecraze.com/wp-content/uploads/2021/04/Couple-Sleeping-Positions.jpg.webp" },
+                { "id": 18, "fact": "The average relationship argument lasts 10 minutes", "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJRexqpl7E4hreYj28AO1WkO-IeZ1_aBbGXQ&s" },
+                { "id": 19, "fact": "Couples who meet online are less likely to divorce than those who meet traditionally", "image": "https://qph.cf2.quoracdn.net/main-qimg-8b7c66b671bac9e98171df570d50de10.webp" },
+                { "id": 20, "fact": "Happy couples say 'thank you' to each other at least 5 times a day", "image": "https://st5.depositphotos.com/16337376/64845/i/450/depositphotos_648452948-stock-photo-happy-smiling-young-boyfriend-giving.jpg" }
             ]
         };
 
@@ -155,8 +133,11 @@
             const factDisplay = document.getElementById('factDisplay');
             factDisplay.innerHTML = `
                 <div class="fact-card">
-                    <h3>Fact #${fact.id}</h3>
-                    <p>${fact.fact}</p>
+                    <img src="${fact.image}" alt="Fact Image">
+                    <div>
+                        <h3>Fact #${fact.id}</h3>
+                        <p>${fact.fact}</p>
+                    </div>
                 </div>
             `;
         }
@@ -165,4 +146,4 @@
         window.onload = showRandomFact;
     </script>
 </body>
-</html>
+</html
